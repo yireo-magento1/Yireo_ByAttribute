@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<widgets>
+    <byattribute_widget type="byattribute/widget" module="byattribute">
+        <name>ByAttribute Sideblock</name>
+        <description type="desc">Adds a block displaying attribute-values of any type</description>
+        <css>css/byattribute.css</css><!-- @todo: This is not working yet -->
+        <parameters>
+            <title translate="label description">
+                <visible>1</visible>
+                <label>Title</label>
+                <description>The title to display within this block</description>
+                <type>text</type>
+            </title>
+            <attribute_value translate="label description">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Product Attribute</label>
+                <description>Product Attribute to get all values from</description>
+                <type>select</type>
+                <source_model>byattribute/backend_source_attribute</source_model>
+            </attribute_value>
+            <show_product_count translate="label description">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Show Product Count?</label>
+                <description>Display the number of products matching this attribute</description>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </show_product_count>
+            <skip_empty translate="label description">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Skip Empty?</label>
+                <type>select</type>
+                <description>Hide attribute-values that don't have any matching products</description>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </skip_empty>
+            <category_id translate="label description">
+                <visible>1</visible>
+                <label>Category ID</label>
+                <description>Category ID to filter by (optional)</description>
+                <type>text</type>
+            </category_id>
+        </parameters>
+    </byattribute_widget>
+</widgets>

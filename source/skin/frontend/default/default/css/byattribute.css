@@ -1,0 +1,12 @@
+/**
+ * Yireo ByAttribute-module
+ *
+ * @package     Yireo_ByAttribute
+ * @author      Yireo
+ * @copyright   Copyright (c) 2011 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+.block-byattribute li {
+    padding: 3px 9px;
+}

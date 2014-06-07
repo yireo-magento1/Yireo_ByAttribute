@@ -1,0 +1,37 @@
+<?php
+/**
+ * Yireo ByAttribute-module
+ *
+ * @package     Yireo_ByAttribute
+ * @author      Yireo
+ * @copyright   Copyright (c) 2013 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+$options = $this->getOptions($this->getOrdering());
+?>
+<div class="block block-list block-byattribute">
+    <div class="block-title">
+        <strong><span><?php echo $this->getTitle(); ?></span/></strong>
+    </div>
+    <div class="block-content">
+    <?php if(!empty($options)) { ?>
+        <ul class="list">
+        <?php $i = 1; ?>
+        <?php foreach($options as $option) { ?>
+            <?php $class = array(); ?>
+            <?php if($i == 1) $class[] = 'first'; ?>
+            <?php if($i == count($options)) $class[] = 'last'; ?>
+            <?php if($i % 2 == 1) $class[] = 'odd'; ?>
+            <?php if($i % 2 == 0) $class[] = 'even'; ?>
+            <li class="<?php echo implode(' ', $class); ?>">
+                <a href="<?php echo $option['url']; ?>" title="<?php echo $option['label']; ?>"><?php echo $option['label']; ?></a>
+                <?php if($this->showProductCount() && isset($option['product_count'])) echo '('.$option['product_count'].')'; ?>
+            </li>
+            <?php $i++; ?>
+        <?php } ?>
+        </ul>
+    <?php } else { ?>
+        <p class="empty"><?php echo $this->__('No options available'); ?></p>
+    <?php } ?>
+    </div>
+</div>

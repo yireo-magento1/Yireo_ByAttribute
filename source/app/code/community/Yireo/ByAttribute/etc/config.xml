@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yireo ByAttribute for Magento 
+ *
+ * @package     Yireo_ByAttribute
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (C) 2014 Yireo (http://www.yireo.com/)
+ * @license     Open Source License (OSL v3)
+ */
+-->
+<config>
+
+    <modules>
+        <Yireo_ByAttribute>
+            <version>1.1.2</version>
+        </Yireo_ByAttribute>
+    </modules>
+
+    <global>
+        <blocks>
+            <byattribute>
+                <class>Yireo_ByAttribute_Block</class>
+            </byattribute>
+        </blocks>
+
+        <helpers>
+            <byattribute>
+                <class>Yireo_ByAttribute_Helper</class>
+            </byattribute>
+        </helpers>
+
+        <models>
+            <byattribute>
+                <class>Yireo_ByAttribute_Model</class>
+            </byattribute>
+        </models>
+        <rewrite>
+            <byattribute_rewrite>
+                <from><![CDATA[#^/?attribute/.*#]]></from>
+                <to>/byattribute/index/index</to>
+            </byattribute_rewrite>
+        </rewrite>
+    </global>
+
+    <frontend>
+        <routers>
+            <byattribute>
+                <use>standard</use>
+                <args>
+                    <module>Yireo_ByAttribute</module>
+                    <frontName>byattribute</frontName>
+                </args>
+            </byattribute>
+        </routers>
+        <layout>
+            <updates>
+                <byattribute>
+                    <file>byattribute.xml</file>
+                </byattribute>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Yireo_ByAttribute>
+                    <files>
+                        <default>Yireo_ByAttribute.csv</default>
+                    </files>
+                </Yireo_ByAttribute>
+            </modules>
+        </translate>
+    </frontend>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Yireo_ByAttribute>
+                    <files>
+                        <default>Yireo_ByAttribute.csv</default>
+                    </files>
+                </Yireo_ByAttribute>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <byattribute translate="title" module="byattribute">
+                                            <title>ByAttribute Section</title>
+                                        </byattribute>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <byattribute>
+                <use>admin</use>
+                <args>
+                    <module>Yireo_ByAttribute</module>
+                    <frontName>byattribute</frontName>
+                </args>
+            </byattribute>
+        </routers>
+    </admin>
+
+    <default>
+        <catalog>
+            <byattribute>
+                <sidebar_skip_empty>0</sidebar_skip_empty>
+                <sidebar_show_product_count>0</sidebar_show_product_count>
+                <overview_title_format>Products with $ATTRIBUTE $VALUE</overview_title_format>
+                <use_label_in_url>1</use_label_in_url>
+            </byattribute>
+        </catalog>
+    </default>
+</config>
