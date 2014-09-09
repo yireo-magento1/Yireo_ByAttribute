@@ -42,6 +42,30 @@ class Yireo_ByAttribute_Block_Overview extends Mage_Core_Block_Template
         return $rt;
     }
 
+    protected function _prepareLayout()
+    {
+        $breadcrumbs = $this->getLayout()->getBlock('breadcrumbs');
+        $breadcrumbs->addCrumb('home', array(
+            'label' => Mage::helper('cms')->__('Home'),
+            'title' => Mage::helper('cms')->__('Go to Home Page'), 
+            'link' => Mage::getBaseUrl()
+        ));
+        $breadcrumbs->addCrumb('byattribute_page', array(
+            'label' => $this->getTitle(), 
+            'title' => $this->getTitle()
+        ));
+
+        $head = $this->getLayout()->getBlock('head');
+        if ($head) {
+            $title = strip_tags($this->getTitle());
+            $head->setTitle($title);
+            $head->setKeywords($this->getMetaKeywords());
+            $head->setDescription($title);
+        }
+
+        return parent::_prepareLayout();
+    }
+
     /*
      * Get the page title and construct it if needed
      */
@@ -84,5 +108,23 @@ class Yireo_ByAttribute_Block_Overview extends Mage_Core_Block_Template
         }
 
         return $this->title;
+    }
+
+    public function getMetaKeywords()
+    {
+        $keywords = array();
+        $attributes = Mage::getSingleton('byattribute/overview')->getAttributes();
+        foreach($attributes as $attribute) {
+            $attribute = $attributes[0]['attribute'];
+            $keywords[] = $attribute->getFrontendLabel();
+            $options = $attribute->getFrontend()->getSelectOptions();
+            foreach($options as $option) {
+                if($option['value'] == $attributes[0]['value']) {
+                    $keywords[] = $option['label'];
+                    break;
+                }
+            }
+        }
+        return implode(', ', $keywords);
     }
 }
