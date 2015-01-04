@@ -4,7 +4,7 @@
  *
  * @package     Yireo_ByAttribute
  * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright (C) 2014 Yireo (http://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 
@@ -90,7 +90,8 @@ class Yireo_ByAttribute_Model_Attribute
             }
 
             if($skip_empty == true) {
-                $productCollection->addAttributeToFilter($this->getAttributeCode(), array('isnotnull' => true));
+                //$productCollection->addAttributeToFilter($this->getAttributeCode(), array('isnotnull' => true));
+                $productCollection->addAttributeToFilter($this->getAttributeCode(), array('neq' => 'NULL'));
             }
 
             if(!empty($productCollection)) {
