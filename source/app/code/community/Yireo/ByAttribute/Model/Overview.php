@@ -20,16 +20,24 @@ class Yireo_ByAttribute_Model_Overview extends Mage_Core_Model_Abstract
      */
     public function addAttribute($attribute)
     {
-        if(!is_numeric($attribute['value'])) {
-            $attr = $attribute['attribute'];
-            $options = $attr->getFrontend()->getSelectOptions();
-            foreach($options as $option) {
-                if(empty($option['value'])) continue;
-                $urlLabel = Mage::helper('byattribute')->rewriteValue($option['label']);
-                if($urlLabel == $attribute['value']) {
-                    $attribute['value'] = $option['value'];
-                    break;
-                }
+        $attributeModel = $attribute['attribute'];
+        if(preg_match('/^id\,([0-9]+)/', $attribute['value'], $match)) {
+            $attribute['value'] = (int)$match[1];
+            $this->_attributes[] = $attribute;
+            return;
+        }
+
+        $options = $attributeModel->getFrontend()->getSelectOptions();
+        foreach($options as $option) {
+
+            if(empty($option['value'])) {
+                continue;
+            }
+
+            $urlLabel = Mage::helper('byattribute')->rewriteValue($option['label']);
+            if($urlLabel == $attribute['value']) {
+                $attribute['value'] = $option['value'];
+                break;
             }
         }
 
