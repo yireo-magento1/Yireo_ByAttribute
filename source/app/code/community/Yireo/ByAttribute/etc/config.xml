@@ -35,6 +35,7 @@
                 <class>Yireo_ByAttribute_Model</class>
             </byattribute>
         </models>
+
         <rewrite>
             <byattribute_rewrite>
                 <from><![CDATA[#^/?attribute/.*#]]></from>
