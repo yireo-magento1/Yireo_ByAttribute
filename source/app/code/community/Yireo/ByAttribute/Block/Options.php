@@ -8,45 +8,44 @@
  * @license     Open Source License (OSL v3)
  */
 
-/*
+/**
  * Class for block "byattribute_options"
  */
 class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
 {
-    /*
+    /**
      * The title of the block
      */
     private $title = null;
 
-    /*
+    /**
      * Variable deciding whether the show the product count in the PHTML-template
      */
     private $show_product_count = false;
 
-    /*
+    /**
      * Either an ID or code to identify the right attribute
      */
     private $attributeValue = null;
 
-    /*
+    /**
      * Category ID when using only attributes that are used in a specific category
      */
     private $categoryId = 0;
 
-    /*
+    /**
      * Values to skip
      */
     private $skip_options = array();
 
-    /*
+    /**
      * Whether to skip values with no products assigned to it
      */
     private $skip_empty = false;
 
-    /*
+    /**
      * Constructor method
      *
-     * @return null
      */
     public function __construct()
     {
@@ -61,7 +60,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         $this->setTemplate('byattribute/options.phtml');
     }
 
-    /*
+    /**
      * Method to set the title
      */
     public function setTitle($title = null)
@@ -69,7 +68,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         $this->title = $title;
     }
 
-    /*
+    /**
      * Method to set the attribute
      */
     public function setAttributeValue($attributeValue = null)
@@ -77,7 +76,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         $this->attributeValue = $attributeValue;
     }
 
-    /*
+    /**
      * Method to set whether to skip empty values
      */
     public function skipEmpty($skip = null)
@@ -85,7 +84,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         $this->skip_empty = (bool)$skip;
     }
 
-    /*
+    /**
      * Method to add a new option-value to skip in the listing
      */
     public function skipOptionValue($value= null)
@@ -93,7 +92,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         $this->skip_options[] = $value;
     }
 
-    /*
+    /**
      * Method to set the category-ID
      */
     public function setCategoryId($categoryId = 0)
@@ -101,7 +100,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         $this->categoryId = (int)$categoryId;
     }
 
-    /*
+    /**
      * Method to set a limit to the number of attributes shown
      */
     public function setLimit($limit = null)
@@ -111,7 +110,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         }
     }
 
-    /*
+    /**
      * Method to set the ordering of attribute-values
      */
     public function setOrdering($ordering = null)
@@ -119,7 +118,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         $this->ordering = $ordering;
     }
 
-    /*
+    /**
      * Method to get the attribute-title
      */
     public function getAttributeTitle()
@@ -127,7 +126,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         return $this->getAttribute()->getAttributeTitle();
     }
 
-    /*
+    /**
      * Method to get the category-name
      */
     public function getCategoryName()
@@ -135,7 +134,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         return $this->getAttribute()->getCategoryName();
     }
 
-    /*
+    /**
      * Method to get the title
      */
     public function getTitle()
@@ -149,7 +148,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         return $title;
     }
 
-    /*
+    /**
      * Method to get the ordering of attribute-values
      */
     public function getOrdering()
@@ -157,7 +156,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         return $this->ordering;
     }
 
-    /*
+    /**
      * Method to get the all the attribute-values
      */
     public function getOptions($ordering = null)
@@ -186,7 +185,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         return $options;
     }
 
-    /*
+    /**
      * Method to set or get whether to show the product-count
      */
     public function showProductCount($set = null)
@@ -197,7 +196,7 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
         return (bool)$this->show_product_count;
     }
 
-    /*
+    /**
      * Method to get the attribute by its category and its attribute-ID or code
      *
      * @return object

@@ -198,7 +198,7 @@ class Yireo_ByAttribute_Model_Attribute
 
     /**
      * Set the attribute by ID
-     * 
+     *
      * @return Mage_Eav_Model_Entity_Attribute
      */
     public function setAttribute($attributeName = null, $attributeValue = null)

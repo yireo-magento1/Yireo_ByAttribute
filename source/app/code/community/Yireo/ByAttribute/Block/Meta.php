@@ -8,12 +8,12 @@
  * @license     Open Source License (OSL v3)
  */
 
-/*
+/**
  * Class for block "byattribute_meta"
  */
 class Yireo_ByAttribute_Block_Meta extends Mage_Core_Block_Abstract
 {
-    /*
+    /**
      * Method to set the meta-title
      */
     public function setTitle($custom_title = null, $skip = null, $addlabel = null)
@@ -48,7 +48,7 @@ class Yireo_ByAttribute_Block_Meta extends Mage_Core_Block_Abstract
         return true;
     }
 
-    /*
+    /**
      * Method to set the meta-keywords
      */
     public function setKeywords($skip = null, $addlabel = null)
@@ -72,7 +72,7 @@ class Yireo_ByAttribute_Block_Meta extends Mage_Core_Block_Abstract
         return true;
     }
 
-    /*
+    /**
      * Method to get the right filters from the Layered Navigation
      */
     public function getFilters($skip)
@@ -108,7 +108,7 @@ class Yireo_ByAttribute_Block_Meta extends Mage_Core_Block_Abstract
         return $filters;
     }
 
-    /*
+    /**
      * Convert a comma-seperatod list
      */
     public function getArrayFromCsv($string) 
@@ -125,7 +125,7 @@ class Yireo_ByAttribute_Block_Meta extends Mage_Core_Block_Abstract
         return $array;
     }
 
-    /*
+    /**
      * Helper-method to get the current category
      */
     public function getCurrentCategory()
@@ -133,7 +133,7 @@ class Yireo_ByAttribute_Block_Meta extends Mage_Core_Block_Abstract
         return Mage::getSingleton('catalog/category')->load($this->getRequest()->get('id'));
     }
 
-    /*
+    /**
      * Helper-method to get the current category
      */
     public function getStoreName()
@@ -141,7 +141,7 @@ class Yireo_ByAttribute_Block_Meta extends Mage_Core_Block_Abstract
         return Mage::getStoreConfig('system/store/name');
     }
 
-    /*
+    /**
      * Helper-method to get the seperator
      */
     public function getSeperator()

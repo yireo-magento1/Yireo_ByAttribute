@@ -22,13 +22,13 @@
         </reference>
 
         <reference name="right">
-            <block type="byattribute/options" name="right.byattribute.options">
+            <block type="byattribute/options" name="right.byattribute.options" template="byattribute/options.phtml">
                 <action method="setAttributeValue"><string>manufacturer</string></action>
                 <action method="showProductCount"><int>1</int></action>
                 <action method="skipEmpty"><int>1</int></action>
                 <!--<action method="setCategoryId"><int>8</int></action>-->
             </block>
-            <block type="byattribute/options" name="right.byattribute.colors">
+            <block type="byattribute/options" name="right.byattribute.colors"  template="byattribute/options.phtml">
                 <action method="setAttributeValue"><string>color</string></action>
                 <action method="showProductCount"><int>1</int></action>
                 <action method="skipEmpty"><int>0</int></action>

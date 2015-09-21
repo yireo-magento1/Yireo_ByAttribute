@@ -8,7 +8,7 @@
  * @license     Open Source License (OSL v3)
  */
 
-/*
+/**
  * Class for block "byattribute_overview"
  */
 class Yireo_ByAttribute_Block_Overview extends Mage_Core_Block_Template
@@ -16,7 +16,7 @@ class Yireo_ByAttribute_Block_Overview extends Mage_Core_Block_Template
     protected $title = null;
     protected $title_format = 'Products with $ATTRIBUTE $VALUE';
 
-    /*
+    /**
      * Constructor method
      *
      * @return mixed
@@ -66,7 +66,7 @@ class Yireo_ByAttribute_Block_Overview extends Mage_Core_Block_Template
         return parent::_prepareLayout();
     }
 
-    /*
+    /**
      * Get the page title and construct it if needed
      */
     public function setTitleFormat($title_format)
@@ -74,7 +74,7 @@ class Yireo_ByAttribute_Block_Overview extends Mage_Core_Block_Template
         $this->title_format = $title_format;
     }
 
-    /*
+    /**
      * Get the page title and construct it if needed
      */
     public function getTitle()

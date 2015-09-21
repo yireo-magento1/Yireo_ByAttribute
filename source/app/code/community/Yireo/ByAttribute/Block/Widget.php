@@ -8,15 +8,34 @@
  * @license     Open Source License (OSL v3)
  */
 
-/*
+/**
  * Class for ByAttribute widget
  */
 class Yireo_ByAttribute_Block_Widget extends Mage_Core_Block_Template implements Mage_Widget_Block_Interface
 {
-    /*
+    /**protected function _construct()
+    {
+        $rt = parent::_construct();
+
+        $cacheKeyData = array(
+            Mage_Cms_Model_Block::CACHE_TAG,
+            'byattribute.widget',
+            Mage::app()->getStore()->getId(),
+            intval(Mage::app()->getStore()->isCurrentlySecure())
+        );
+
+        $this->addData(array(
+            'cache_lifetime' => 3600,
+            'cache_tags'     => array(Mage_Cms_Model_Block::CACHE_TAG, Mage_Core_Model_Store::CACHE_TAG),
+            'cache_key'      => implode('_', $cacheKeyData),
+        ));
+
+        return $rt;
+    }*/
+
+    /**
      * Implementation of toHtml() method
      *
-     * @return null
      */
     protected function _toHtml()
     {
