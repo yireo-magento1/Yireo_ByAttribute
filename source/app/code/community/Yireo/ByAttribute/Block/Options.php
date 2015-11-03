@@ -58,6 +58,28 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
 
         // Set the template
         $this->setTemplate('byattribute/options.phtml');
+
+        // Implement block-caching
+        $this->addData(array(
+            'cache_lifetime' => 1800,
+            'cache_tags' => array('block_html'),
+        ));
+    }
+
+    public function getCacheKey()
+    {
+        $cacheId = implode('_', array(
+            Mage_Cms_Model_Block::CACHE_TAG,
+            Mage::app()->getStore()->getId(),
+            intval(Mage::app()->getStore()->isCurrentlySecure()),
+            $this->getNameInLayout(),
+            $this->getTemplate(),
+            $this->getAttributeValue(),
+            $this->getTitle(),
+        ));
+
+        $cacheKey = 'byattribute_options_'.md5($cacheId);
+        return $cacheKey;
     }
 
     /**
@@ -74,6 +96,11 @@ class Yireo_ByAttribute_Block_Options extends Mage_Core_Block_Template
     public function setAttributeValue($attributeValue = null)
     {
         $this->attributeValue = $attributeValue;
+    }
+
+    public function getAttributeValue()
+    {
+        return $this->attributeValue;
     }
 
     /**

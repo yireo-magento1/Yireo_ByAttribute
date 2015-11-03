@@ -14,10 +14,6 @@
 class Yireo_ByAttribute_Block_Overview_Products extends Mage_Catalog_Block_Product_List
 {
     /**
-     * Page title
-     */
-
-    /**
      * Get the products
      *
      * @return array
